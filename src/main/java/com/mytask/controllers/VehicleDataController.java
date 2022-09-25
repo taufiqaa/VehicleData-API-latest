@@ -37,7 +37,7 @@ public class VehicleDataController {
         return vehicleDataService.findOne(id);
     }
 
-    @PatchMapping("{id}")
+    @PatchMapping
     public VehicleData update(@RequestBody VehicleData vehicleData) {
         return vehicleDataService.save(vehicleData);
     }
