@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mytask.models.entities.VehicleData;
 import com.mytask.services.VehicleDataService;
 
-@CrossOrigin(origins = "https://taufiq-vehicle-data.vercel.app/", allowedHeaders = "Requestor-Type", exposedHeaders = "X-Get-Header")
+@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/api/v1/vehicle-data")
 public class VehicleDataController {
@@ -22,26 +22,31 @@ public class VehicleDataController {
     @Autowired
     private VehicleDataService vehicleDataService;
 
+    @CrossOrigin(origins = "https://taufiq-vehicle-data.vercel.app/", allowedHeaders = "Requestor-Type")
     @PostMapping
     public VehicleData create(@RequestBody VehicleData vehicleData) {
         return vehicleDataService.save(vehicleData);
     }
 
+    @CrossOrigin(origins = "https://taufiq-vehicle-data.vercel.app/", allowedHeaders = "Requestor-Type")
     @GetMapping
     public Iterable<VehicleData> findAll() {
         return vehicleDataService.findAll();
     }
 
+    @CrossOrigin(origins = "https://taufiq-vehicle-data.vercel.app/", allowedHeaders = "Requestor-Type")
     @GetMapping("{id}")
     public VehicleData findOne(@PathVariable("id") Long id) {
         return vehicleDataService.findOne(id);
     }
 
+    @CrossOrigin(origins = "https://taufiq-vehicle-data.vercel.app/", allowedHeaders = "Requestor-Type")
     @PatchMapping
     public VehicleData update(@RequestBody VehicleData vehicleData) {
         return vehicleDataService.save(vehicleData);
     }
 
+    @CrossOrigin(origins = "https://taufiq-vehicle-data.vercel.app/", allowedHeaders = "Requestor-Type")
     @DeleteMapping("{id}")
     public void removeOne(@PathVariable("id") Long id) {
         vehicleDataService.removeOne(id);
