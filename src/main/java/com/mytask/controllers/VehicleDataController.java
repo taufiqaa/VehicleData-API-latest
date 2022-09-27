@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mytask.models.entities.VehicleData;
 import com.mytask.services.VehicleDataService;
 
-@CrossOrigin(origins = "https://taufiq-vehicle-data.vercel.app", methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.PATCH,RequestMethod.DELETE}
-
-)
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1/vehicle-data")
 public class VehicleDataController {
