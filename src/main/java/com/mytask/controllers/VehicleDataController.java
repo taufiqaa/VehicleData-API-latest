@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mytask.models.entities.VehicleData;
 import com.mytask.services.VehicleDataService;
 
-@CrossOrigin(maxAge = 3600)
+@CrossOrigin(exposedHeaders = {"Access-Control-Allow-Origin","Access-Control-Allow-Credentials"})
 @RestController
 @RequestMapping("/api/v1/vehicle-data")
 public class VehicleDataController {
